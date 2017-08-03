@@ -1,0 +1,14 @@
+#!/usr/bin/expect -f
+#
+
+set vUserName "user_name"
+set vPass "xxxxxx"
+
+set timeout 2
+
+spawn git pull
+expect "github.com': "  {send "$vUserName\r"}
+expect "@github.com':"  {send "$vPass\r"}
+interact
+
+set timeout 10
